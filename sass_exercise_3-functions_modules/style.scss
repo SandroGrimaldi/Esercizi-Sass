@@ -1,0 +1,56 @@
+@use "sass:color";
+@use "rem.scss" as r;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+$red:red;
+$blue:blue;
+$green:green;
+
+.exercise {
+    border: #{r.rem(1px)} solid $red;
+    padding: #{r.rem(15px)};
+    text-align: center;
+}
+
+section {
+    display: flex;
+    padding-top: #{r.rem(30px)};
+}
+
+h1{
+    color:$green;
+    text-decoration:underline;
+    text-decoration-color: $blue;
+    margin-top: #{r.rem(20px)};
+}
+
+@mixin article-card($color,$border-color,$font_size) {
+    color: $color;
+    border:#{r.rem(1px)} solid $border_color;
+    font-size: $font_size;
+    padding:#{r.rem(40px)};
+}
+
+.article-card--blue{
+    @include article-card($blue,$green,1rem);
+    width:25%;
+}
+
+.article-card--red{
+    @include article-card($red,$green,1rem);
+    width:25%;
+}
+
+.article-card_footer{
+    @include article-card($green,$blue, #{r.rem(24px)});
+    width:100%;
+}
+
+
+
+
