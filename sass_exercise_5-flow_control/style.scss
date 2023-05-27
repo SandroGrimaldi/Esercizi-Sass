@@ -1,0 +1,107 @@
+@use "sass:color";
+@use "rem.scss" as r;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+$red:rgb(144, 45, 55);
+$blue:blue;
+$green:green;
+
+$div-classes: (
+    "fs-1rem": 1rem,
+    "fs-2rem": 2rem,
+    "fs-3rem": 3rem,
+);
+
+@each $key, $value in $div-classes{
+    .#{$key}{
+        text-align: left;
+        font-size: $value;
+    }
+};
+
+%text{
+    color:$green; 
+    margin-top: #{r.rem(20px)};
+    align-self: center;
+}
+
+@mixin article-card($color,$border-color,$font_size) {
+    color: $color;
+    border:#{r.rem(1px)} solid $border_color;
+    font-size: $font_size;
+    padding:#{r.rem(40px)};
+}
+
+
+.exercise {
+    border: #{r.rem(1px)} solid $red;
+    padding: #{r.rem(15px)};
+    text-align: center;
+    display:flex;
+    flex-direction: column;
+    
+    &>h1{
+        @extend %text;
+        text-decoration:underline;
+        text-decoration-color: $blue;
+    }
+
+    &>h2{
+        @extend %text;
+        padding: #{r.rem(16px)} #{r.rem(16px)} ;
+        border: #{r.rem(1px)} solid $red;
+    }
+
+    &>section{
+        display: flex;
+        margin-bottom: #{r.rem(16px)};
+
+        &:nth-child(4){
+            flex-direction: row;
+            justify-content: space-between;
+
+            div{
+                width: #{r.rem(45px)};
+                height: #{r.rem(45px)};
+                border: #{r.rem(1px)} solid $red;
+
+                @for $index from 1 through 20{
+                    &:nth-child(#{$index}){
+                        color: lighten($color:black, $amount: 5 * $index);
+                        background-color: darken($color: white, $amount: 5 * $index);
+
+                        @if $index == 10 {
+                            color: $red;
+                            background-color: $blue;
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+        }
+
+        padding-top: #{r.rem(30px)};
+        
+        .article-card--blue{
+            @include article-card($blue,$green,1rem);
+            width:25%;
+        }
+        
+        .article-card--red{
+            @include article-card($red,$green,1rem);
+            width:25%;
+        }
+        
+        .article-card_footer{
+            @include article-card($green,$blue, #{r.rem(24px)});
+            width:100%;
+        }
+    
+    }
+}
+
