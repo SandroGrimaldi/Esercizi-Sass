@@ -1,0 +1,61 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.exercise {
+  border: 0.0625rem solid red;
+  padding: 0.9375rem;
+  text-align: center;
+}
+
+section {
+  display: flex;
+  padding-top: 1.875rem;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+}
+div > h1 {
+  text-decoration: underline;
+  text-decoration-color: blue;
+}
+div > h2 {
+  padding: 1rem 1rem;
+  border: 0.0625rem solid red;
+}
+
+div > h1, div > h2 {
+  color: green;
+  margin-top: 1.25rem;
+  align-self: center;
+}
+
+.article-card--blue {
+  color: blue;
+  border: 0.0625rem solid green;
+  font-size: 1rem;
+  padding: 2.5rem;
+  width: 25%;
+}
+
+.article-card--red {
+  color: red;
+  border: 0.0625rem solid green;
+  font-size: 1rem;
+  padding: 2.5rem;
+  width: 25%;
+}
+
+.article-card_footer {
+  color: green;
+  border: 0.0625rem solid blue;
+  font-size: 1.5rem;
+  padding: 2.5rem;
+  width: 100%;
+}
+
+/*# sourceMappingURL=style.css.map */
